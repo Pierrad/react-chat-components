@@ -98,7 +98,8 @@ export const MessageList: FC<MessageListProps> = (props: MessageListProps) => {
     const ts = String(timestamp);
     const date = new Date(parseInt(ts) / 10000);
     const minutes = date.getMinutes();
-    return `${date.getHours()}:${minutes > 9 ? minutes : "0" + minutes}`;
+    const completeDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    return `${completeDate} - ${date.getHours()}:${minutes > 9 ? minutes : "0" + minutes}`;
   };
 
   const scrollToBottom = () => {
